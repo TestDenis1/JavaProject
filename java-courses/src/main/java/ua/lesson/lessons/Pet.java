@@ -6,5 +6,5 @@ public interface Pet {
 
     String getPetName();
 
-
+    public void setPetName(final String name);
 }

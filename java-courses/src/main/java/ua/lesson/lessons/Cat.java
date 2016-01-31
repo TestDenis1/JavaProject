@@ -16,4 +16,8 @@ public class Cat implements Pet{
     public String getPetName() {
         return this.name;
     }
+
+    public void setPetName(final String name) {
+        this.name = name;
+    }
 }

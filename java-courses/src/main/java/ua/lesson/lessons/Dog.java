@@ -16,4 +16,8 @@ public class Dog implements Pet {
     public String getPetName() {
         return this.name;
     }
+
+    public void setPetName(String name) {
+        this.name = name;
+    }
 }

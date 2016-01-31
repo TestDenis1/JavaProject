@@ -7,15 +7,15 @@ import java.util.Scanner;
  */
 public class Clinic {
 
-
-
-    private final Client[] clients;
+    private Client[] clients;
     Scanner sc = new Scanner(System.in);
-    Client client;
+   // Client client;
     Clinic clinic;
     String exit = "no";
 
-    public Clinic(final int size) {
+
+   public Clinic(final int size ) {
+
         this.clients = new Client[size];
     }
 
@@ -47,8 +47,8 @@ public class Clinic {
         String nameId = sc.next();
         Pet pet = addNewPet();
         System.out.println("Введите id");
-        int index = sc.nextInt();
-        this.clinic.addClient(index, new Client(nameId, pet));
+        int size = sc.nextInt();
+        this.clinic.addClient(3,new Client(nameId, pet));
         System.out.println("The client added");
     }
 
@@ -98,34 +98,30 @@ public class Clinic {
     }
 
     public void removeClient() {
-        boolean removedClient = false;
         System.out.println("Введите имя клиента которого хотите удалить :");
         String nameClient = sc.next();
-        for (Client client : clients) {
-            if (this.client != null && this.client.getNameId().equals(nameClient)) {
-                this.client = null;
-                System.out.println(client);
+        for (int i = 0; i < clients.length; i++) {
+            if (this.clients[i] != null && this.clients[i].getNameId().equals(nameClient)) {
+                this.clients[i] = null;
+                System.out.println("Пользователь успешно удален");
             }
         }
     }
-
 
     public void changeNameClient(){
-        System.out.println("Введите им клиента для редактирования:" );
-        String changeName = sc.next();
-        System.out.println("Введите новое имя");
-        String newName = sc.next();
-        System.out.println("Имя успешно изменено. ");
-        for(Client client : clients){
-            if(this.client != null && this.client.getNameId().equals(changeName)){
-                this.client.setNameId(newName);
+      System.out.println("Введите имя клиента которое хотите изменить ");
+        String name = sc.next();
+        for(int i = 0; i < clients.length; i++){
+            if(clients[i] != null && clients[i].getNameId().equals(name)){
+               System.out.println("Введите новое имя");
+                String newName = sc.next();
+                clients[i].setNameId(newName);
+                System.out.println("Имя успешно изменено.");
             }
         }
     }
 
-    public void changePetname(){
 
-    }
 
     public void menu(){
         System.out.println("==================================================================");
@@ -140,7 +136,6 @@ public class Clinic {
         System.out.println("Нажмите цифру 6, если хотите редактировать имя клиента : ");
         System.out.println("Нажмите цифру 7, если хотите редактировать имя питомца : ");
         System.out.println("===================================================================");
-
     }
 
 
@@ -182,7 +177,5 @@ public class Clinic {
 
         }
     }
-
-
 
 }
